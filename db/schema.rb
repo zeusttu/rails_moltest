@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319164451) do
+ActiveRecord::Schema.define(version: 20160319164833) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "a"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "candidates", force: :cascade do |t|
     t.string   "login",        null: false
@@ -25,5 +34,16 @@ ActiveRecord::Schema.define(version: 20160319164451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "mole_test_id"
+    t.string   "q"
+    t.integer  "answer_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "questions", ["answer_id"], name: "index_questions_on_answer_id"
+  add_index "questions", ["mole_test_id"], name: "index_questions_on_mole_test_id"
 
 end
