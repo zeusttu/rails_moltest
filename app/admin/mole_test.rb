@@ -20,7 +20,6 @@ ActiveAdmin.register MoleTest do
         end
       end
       if errors.length
-		byebug
         flash[:error] = errors.join "\n"
       end
     end
