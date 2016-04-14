@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319170722) do
+ActiveRecord::Schema.define(version: 20160414195820) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -56,11 +56,24 @@ ActiveRecord::Schema.define(version: 20160319170722) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "candidates", force: :cascade do |t|
-    t.string   "login",        null: false
-    t.string   "display_name", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "login",                               null: false
+    t.string   "display_name",                        null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
+  add_index "candidates", ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
 
   create_table "mole_tests", force: :cascade do |t|
     t.integer  "testnum"
