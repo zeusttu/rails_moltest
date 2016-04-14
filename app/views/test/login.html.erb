@@ -2,7 +2,7 @@
 <p>Fiiiind me in app/views/test/login.html.erb</p>
 
 <%= form_for :candidate, url: new_candidate_session_path do %>
-  <%= text_field :candidate, :email %>
+  <%= text_field :candidate, :login %>
   <input type="hidden" name="candidate[password]" id="candidate_password" value="password"/>
   <%= submit_tag "Login" %>
 <% end %>
