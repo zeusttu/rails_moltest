@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  mole_test_id: 
+  started_at: 2016-04-15 20:54:38
+  finished_at: 2016-04-15 20:54:38
+
+two:
+  user_id: 
+  mole_test_id: 
+  started_at: 2016-04-15 20:54:38
+  finished_at: 2016-04-15 20:54:38
