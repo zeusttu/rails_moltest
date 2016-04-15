@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415185437) do
+ActiveRecord::Schema.define(version: 20160415185838) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -74,6 +74,18 @@ ActiveRecord::Schema.define(version: 20160415185437) do
 
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
   add_index "candidates", ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
+
+  create_table "given_answers", force: :cascade do |t|
+    t.integer  "test_result_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "given_answers", ["answer_id"], name: "index_given_answers_on_answer_id"
+  add_index "given_answers", ["question_id"], name: "index_given_answers_on_question_id"
+  add_index "given_answers", ["test_result_id"], name: "index_given_answers_on_test_result_id"
 
   create_table "mole_tests", force: :cascade do |t|
     t.integer  "testnum"
