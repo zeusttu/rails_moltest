@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415185838) do
+ActiveRecord::Schema.define(version: 20160415190020) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20160415185838) do
   add_index "questions", ["mole_test_id"], name: "index_questions_on_mole_test_id"
 
   create_table "test_results", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "candidate_id"
     t.integer  "mole_test_id"
     t.datetime "started_at",   null: false
     t.datetime "finished_at"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20160415185838) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "test_results", ["candidate_id"], name: "index_test_results_on_candidate_id"
   add_index "test_results", ["mole_test_id"], name: "index_test_results_on_mole_test_id"
-  add_index "test_results", ["user_id"], name: "index_test_results_on_user_id"
 
 end
